@@ -1,0 +1,972 @@
+Program.Sub.ScreenSU.Start
+Gui.FParts..create
+Gui.FParts..caption("Browse Parts")
+Gui.FParts..size(22725,10890)
+Gui.FParts..minx(0)
+Gui.FParts..miny(0)
+Gui.FParts..position(0,0)
+Gui.FParts..event(UnLoad,FP_unload)
+Gui.FParts..alwaysontop(False)
+Gui.FParts..fontname("Arial")
+Gui.FParts..fontsize(8)
+Gui.FParts..forecolor(0)
+Gui.FParts..fontstyle(,,,)
+Gui.FParts..BackColor(-2147483633)
+Gui.FParts..controlbox(True)
+Gui.FParts..maxbutton(True)
+Gui.FParts..minbutton(True)
+Gui.FParts..mousepointer(0)
+Gui.FParts..moveable(True)
+Gui.FParts..sizeable(True)
+Gui.FParts..ShowInTaskBar(True)
+Gui.FParts..titlebar(True)
+Gui.FParts.frmTop.create(frame)
+Gui.FParts.frmTop.caption("")
+Gui.FParts.frmTop.size(22035,1290)
+Gui.FParts.frmTop.position(200,-10)
+Gui.FParts.frmTop.visible(True)
+Gui.FParts.frmTop.fontname("Arial")
+Gui.FParts.frmTop.fontsize(8)
+Gui.FParts.cmdRefresh.create(button)
+Gui.FParts.cmdRefresh.caption("Query")
+Gui.FParts.cmdRefresh.visible(True)
+Gui.FParts.cmdRefresh.size(1250,355)
+Gui.FParts.cmdRefresh.zorder(0)
+Gui.FParts.cmdRefresh.position(18700,250)
+Gui.FParts.cmdRefresh.enabled(True)
+Gui.FParts.cmdRefresh.parent("frmTop")
+Gui.FParts.cmdRefresh.fontname("Arial")
+Gui.FParts.cmdRefresh.fontsize(8)
+Gui.FParts.cmdRefresh.event(Click,FP_refresh)
+Gui.FParts.cmdRefresh.defaultvalue("")
+Gui.FParts.cmdRefresh.controlgroup(0)
+Gui.FParts.txtVendorSort.create(textbox,"",True,1365,300,0,13370,855,True,0,Arial,8,-2147483643,1)
+Gui.FParts.txtVendorSort.parent("frmTop")
+Gui.FParts.txtVendorSort.event(KeyPressEnter,FP_gsParts_Query)
+Gui.FParts.txtVendorSort.defaultvalue("")
+Gui.FParts.txtVendorSort.controlgroup(0)
+Gui.FParts.txtVendorSort.tabstop(True)
+Gui.FParts.txtVendorSort.tabindex(15)
+Gui.FParts.txtPartNo.create(textbox,"",True,1600,300,0,170,855,True,0,Arial,8,-2147483643,1)
+Gui.FParts.txtPartNo.parent("frmTop")
+Gui.FParts.txtPartNo.event(KeyPressEnter,FP_gsParts_Query)
+Gui.FParts.txtPartNo.defaultvalue("")
+Gui.FParts.txtPartNo.controlgroup(0)
+Gui.FParts.txtPartNo.tabstop(True)
+Gui.FParts.txtPartNo.tabindex(11)
+Gui.FParts.lblPartNo.create(label,"Part No",True,990,220,1,170,655,True,0,Arial,7,-2147483633,0)
+Gui.FParts.lblPartNo.parent("frmTop")
+Gui.FParts.lblPartNo.defaultvalue("")
+Gui.FParts.lblPartNo.controlgroup(0)
+Gui.FParts.lblPartDesc.create(label,"Part Desc",True,1095,220,1,1855,655,True,0,Arial,7,-2147483633,0)
+Gui.FParts.lblPartDesc.parent("frmTop")
+Gui.FParts.lblPartDesc.defaultvalue("")
+Gui.FParts.lblPartDesc.controlgroup(0)
+Gui.FParts.txtPartDesc.create(textbox,"",True,3100,300,0,1855,855,True,0,Arial,8,-2147483643,1)
+Gui.FParts.txtPartDesc.parent("frmTop")
+Gui.FParts.txtPartDesc.event(KeyPressEnter,FP_gsParts_Query)
+Gui.FParts.txtPartDesc.defaultvalue("")
+Gui.FParts.txtPartDesc.controlgroup(0)
+Gui.FParts.txtPartDesc.tabstop(True)
+Gui.FParts.txtPartDesc.tabindex(12)
+Gui.FParts.lblPartUF1.create(label,"Customer",True,660,220,1,11915,695,True,0,Arial,7,-2147483633,0)
+Gui.FParts.lblPartUF1.parent("frmTop")
+Gui.FParts.lblPartUF1.defaultvalue("")
+Gui.FParts.lblPartUF1.controlgroup(0)
+Gui.FParts.txtPartUF1.create(textbox,"",True,1290,300,0,11915,855,True,0,Arial,8,-2147483643,1)
+Gui.FParts.txtPartUF1.parent("frmTop")
+Gui.FParts.txtPartUF1.event(KeyPressEnter,FP_gsParts_Query)
+Gui.FParts.txtPartUF1.defaultvalue("")
+Gui.FParts.txtPartUF1.controlgroup(0)
+Gui.FParts.txtPartUF1.tabstop(True)
+Gui.FParts.txtPartUF1.tabindex(16)
+Gui.FParts.lblPartUF2.create(label,"Vendor",True,1035,220,1,13370,680,True,0,Arial,7,-2147483633,0)
+Gui.FParts.lblPartUF2.parent("frmTop")
+Gui.FParts.lblPartUF2.defaultvalue("")
+Gui.FParts.lblPartUF2.controlgroup(0)
+Gui.FParts.txtPartDesc2.create(textbox,"",True,4320,300,0,5065,855,True,0,Arial,8,-2147483643,1)
+Gui.FParts.txtPartDesc2.parent("frmTop")
+Gui.FParts.txtPartDesc2.event(KeyPressEnter,FP_gsParts_Query)
+Gui.FParts.txtPartDesc2.defaultvalue("")
+Gui.FParts.txtPartDesc2.controlgroup(0)
+Gui.FParts.txtPartDesc2.tabstop(True)
+Gui.FParts.txtPartDesc2.tabindex(13)
+Gui.FParts.lblPartDesc2.create(label,"Extra Description",True,2145,220,1,5065,655,True,0,Arial,7,-2147483633,0)
+Gui.FParts.lblPartDesc2.parent("frmTop")
+Gui.FParts.lblPartDesc2.defaultvalue("")
+Gui.FParts.lblPartDesc2.controlgroup(0)
+Gui.FParts.txtSortCode.create(textbox,"",True,1095,300,0,9500,855,True,0,Arial,8,-2147483643,1)
+Gui.FParts.txtSortCode.parent("frmTop")
+Gui.FParts.txtSortCode.event(KeyPressEnter,FP_gsParts_Query)
+Gui.FParts.txtSortCode.defaultvalue("")
+Gui.FParts.txtSortCode.controlgroup(0)
+Gui.FParts.txtSortCode.tabstop(True)
+Gui.FParts.txtSortCode.tabindex(14)
+Gui.FParts.lblSortCode.create(label,"Sort Code",True,795,220,1,9500,655,True,0,Arial,7,-2147483633,0)
+Gui.FParts.lblSortCode.parent("frmTop")
+Gui.FParts.lblSortCode.defaultvalue("")
+Gui.FParts.lblSortCode.controlgroup(0)
+Gui.FParts.cmdSortCode.create(button)
+Gui.FParts.cmdSortCode.caption("^")
+Gui.FParts.cmdSortCode.visible(True)
+Gui.FParts.cmdSortCode.size(350,350)
+Gui.FParts.cmdSortCode.zorder(0)
+Gui.FParts.cmdSortCode.position(10225,500)
+Gui.FParts.cmdSortCode.enabled(True)
+Gui.FParts.cmdSortCode.parent("frmTop")
+Gui.FParts.cmdSortCode.fontname("Arial")
+Gui.FParts.cmdSortCode.fontsize(8)
+Gui.FParts.cmdSortCode.event(Click,FP_cmdSortCode)
+Gui.FParts.cmdSortCode.defaultvalue("")
+Gui.FParts.cmdSortCode.controlgroup(0)
+Gui.FParts.cmdVendor.create(button)
+Gui.FParts.cmdVendor.caption("^")
+Gui.FParts.cmdVendor.visible(True)
+Gui.FParts.cmdVendor.size(350,350)
+Gui.FParts.cmdVendor.zorder(0)
+Gui.FParts.cmdVendor.position(14370,490)
+Gui.FParts.cmdVendor.enabled(True)
+Gui.FParts.cmdVendor.parent("frmTop")
+Gui.FParts.cmdVendor.fontname("Arial")
+Gui.FParts.cmdVendor.fontsize(8)
+Gui.FParts.cmdVendor.event(Click,FP_cmdVendor)
+Gui.FParts.cmdVendor.defaultvalue("")
+Gui.FParts.cmdVendor.controlgroup(0)
+Gui.FParts.cmdQuery.create(button)
+Gui.FParts.cmdQuery.caption("Print")
+Gui.FParts.cmdQuery.visible(True)
+Gui.FParts.cmdQuery.size(1250,355)
+Gui.FParts.cmdQuery.zorder(0)
+Gui.FParts.cmdQuery.position(18700,700)
+Gui.FParts.cmdQuery.enabled(True)
+Gui.FParts.cmdQuery.parent("frmTop")
+Gui.FParts.cmdQuery.fontname("Arial")
+Gui.FParts.cmdQuery.fontsize(8)
+Gui.FParts.cmdQuery.event(Click,cmdquery_click)
+Gui.FParts.cmdQuery.defaultvalue("")
+Gui.FParts.cmdQuery.controlgroup(0)
+Gui.FParts.lbl10.create(label,"Vendor Part",True,1020,255,1,14825,680,True,0,Arial,7,-2147483633,0)
+Gui.FParts.lbl10.parent("frmTop")
+Gui.FParts.lbl10.defaultvalue("")
+Gui.FParts.lbl10.controlgroup(0)
+Gui.FParts.txtVendor.create(textbox,"",True,2280,300,0,14825,855,True,0,Arial,8,-2147483643,1)
+Gui.FParts.txtVendor.parent("frmTop")
+Gui.FParts.txtVendor.event(KeyPressEnter,FP_gsParts_Query)
+Gui.FParts.txtVendor.defaultvalue("")
+Gui.FParts.txtVendor.controlgroup(0)
+Gui.FParts.chkPartSearch.create(checkbox)
+Gui.FParts.chkPartSearch.caption("Match Beginning Part Number")
+Gui.FParts.chkPartSearch.visible(True)
+Gui.FParts.chkPartSearch.size(2640,255)
+Gui.FParts.chkPartSearch.zorder(0)
+Gui.FParts.chkPartSearch.position(190,300)
+Gui.FParts.chkPartSearch.enabled(True)
+Gui.FParts.chkPartSearch.alignment(0)
+Gui.FParts.chkPartSearch.parent("frmTop")
+Gui.FParts.chkPartSearch.fontname("Arial")
+Gui.FParts.chkPartSearch.fontsize(8)
+Gui.FParts.chkPartSearch.defaultvalue("")
+Gui.FParts.chkPartSearch.controlgroup(0)
+Gui.FParts.gsfg_Parts.create(gsflexgrid)
+Gui.FParts.gsfg_Parts.FixedRows(0)
+Gui.FParts.gsfg_Parts.FixedCols(0)
+Gui.FParts.gsfg_Parts.visible(True)
+Gui.FParts.gsfg_Parts.size(22035,8700)
+Gui.FParts.gsfg_Parts.zorder(0)
+Gui.FParts.gsfg_Parts.position(200,1325)
+Gui.FParts.gsfg_Parts.enabled(True)
+Gui.FParts.gsfg_Parts.event(MouseUp,FP_gsParts_mouseup)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Variable.UDT.uParts.Define("PART",String,PART)
+Variable.UDT.uParts.Define("VIM_EXTEND_DESC",String,VIM_EXTEND_DESC)
+Variable.UDT.uParts.Define("DESCRIPTION",String,DESCRIPTION)
+Variable.UDT.uParts.Define("NAME_VENDOR",String,NAME_VENDOR)
+Variable.UDT.uParts.Define("MFG_Part",String,MFG_PART)
+Variable.UDT.uParts.Define("SELECTED",String)
+Variable.UDT.uParts.Define("Qty_OnHand",String,Qty_OnHand)
+Variable.UDT.uParts.Define("Amt_Price",String,Amt_Price)
+Variable.UDT.uParts.Define("Amt_Cost",String,Amt_Cost)
+Variable.UDT.uParts.Define("BIRunID",Long)
+Variable.UDT.uParts.Define("Qty_OnDemand",Float)
+Variable.UDT.uParts.Define("DATE_LAST_USAGE",String,DATE_LAST_USAGE)
+Variable.UDT.uParts.Define("CODE_SORT",String)
+
+Variable.uGlobal.uParts.Declare("uParts")
+
+Variable.Global.iBIRunID.Declare(Long,0)
+Variable.Global.iBILogID.Declare(Long,0)
+Variable.Global.sCalledFrom.Declare(String)
+Variable.Global.sPart.Declare(String)
+Variable.Global.sRev.Declare(String)
+Variable.Global.sLoc.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'This is a cleaner version of what Glen Skidmore did.  I was unsure of all the hooks involved so i left that portion alone.
+'Created by SKC for Dover MEI on 12/23/2015
+
+
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sWidth.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sReturn.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sPartFile.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.ssql.Declare(String)
+
+V.Global.nMaxQuery.Declare(Long,3000)
+
+F.ODBC.Connection!Conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+Gui.FParts..Caption("Browse Parts - for Dover MEI - R for Router B for BOM")
+
+F.Intrinsic.Control.If(V.Caller.Hook,<>,17380)
+	F.Intrinsic.Control.AndIf(V.Caller.Hook,<>,10210)
+	F.Intrinsic.Control.AndIf(V.Caller.Hook,<>,10220)
+	F.Intrinsic.Control.AndIf(V.Caller.Hook,<>,11120)
+	F.Intrinsic.Control.AndIf(V.Caller.Hook,<>,11130)
+	F.Intrinsic.Control.AndIf(V.Caller.Hook,<>,16370)
+	F.Intrinsic.Control.AndIf(V.Caller.Hook,<>,14080)
+	F.Intrinsic.Control.AndIf(V.Caller.Hook,<>,16720)
+	V.Global.sCalledFrom.Set("Menu")
+F.Intrinsic.Control.Else
+		'not 16730 - that doesn't work
+		'not 17384 as was used in GAB sample
+		'F.Intrinsic.Control.If(V.Caller.Hook,=,17380)
+		V.Global.sCalledFrom.Set("BrowserHook")
+		Gui.FParts.lblSortCode.Visible(True)
+		Gui.FParts.txtSortCode.Visible(True)
+		Gui.FParts.lblPartUF1.Visible(True)
+		Gui.FParts.txtPartUF1.Visible(True)
+		Gui.FParts.lblPartUF2.Visible(True)
+		Gui.FParts.txtVendorSort.Visible(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub(Fp_gsparts_sqlfilter)
+'Block auto load
+F.Intrinsic.Control.If(V.Args.sSQLFilter.Trim,<>,"")
+	F.Intrinsic.UI.InvokeWaitDialog("Auto Load active - Loading Query","Loading Parts Query")
+	F.Intrinsic.Control.CallSub(Fp_gsparts_query,"sSqlFilter",V.Args.sSqlFilter)
+	F.Intrinsic.UI.CloseWaitDialog
+F.Intrinsic.Control.EndIf
+
+Gui.FParts..Enabled(True)
+Gui.FParts..Visible(True)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.FP_gsParts_mouseup.Start
+F.Intrinsic.Control.SetErrorHandler("FP_gsParts_mouseup_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+'**************DONE************************************
+
+V.Local.sParam.Declare(String)
+V.Local.sPartNo.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sUDTelements.Declare(String)
+
+V.Local.sUDTElements.Set("Selected*!*Part*!*Description*!*Vim_Extend_Desc*!*Name_Vendor*!*MFG_Part*!*Qty_OnHand*!*Amt_Price*!*Amt_Cost*!*Qty_onDemand*!*DATE_LAST_USAGE")
+
+F.Intrinsic.Control.If(V.Args.mouserow,=,0)
+	F.Intrinsic.Control.If(V.Args.MouseCol,<>,1)
+		Gui.FParts.gsfg_Parts.SortColumn(V.Args.MouseCol,0)
+	F.Intrinsic.Control.else
+		Gui.FParts.gsfg_Parts.SortColumn(V.Args.MouseCol,0)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Args.MouseCol,=,0)
+		F.Intrinsic.Control.CallSub(Fp_gsparts_checkclick,"column",V.Args.MouseCol,"Row",V.Args.mouserow)
+	F.Intrinsic.Control.Else
+		'check the row and apply the style
+		Gui.FParts.gsfg_Parts.Visible(False)
+		Gui.FParts.gsfg_Parts.Rows(1)
+		Gui.FParts.gsfg_Parts.ApplyStyle(0,1)
+		Gui.FParts.gsfg_Parts.LoadFromUDT("V.uGlobal.uParts",V.Local.sUDTelements,2)
+		Gui.FParts.gsfg_Parts.ApplyStyle(V.Args.mouserow,3)
+		Gui.FParts.gsfg_Parts.FixedRows(1)
+		Gui.FParts.gsfg_Parts.ApplyStyle(0,1)
+		Gui.FParts.gsfg_Parts.Visible(True)
+	F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Gui.FParts.gsfg_Parts.GetTextMatrix(1,V.Screen.FParts!gsfg_Parts.Row,V.Local.sPartNo)
+Gui.FParts.gsfg_Parts.GetTextMatrix(1,V.Args.mouserow,V.Local.sPartNo)
+F.Intrinsic.String.Mid(V.Local.sPartNo,18,3,V.Local.sRev)
+F.Intrinsic.String.Left(V.Local.sPartNo,17,V.Local.sPart)
+F.Intrinsic.Control.If(V.Local.sPart,<>,"")
+	F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+		F.Intrinsic.Control.Case(17380)
+			V.Passed.009001.Set(V.Local.sPartNo.Trim)
+			Gui.FParts..Visible(False)
+			F.Intrinsic.Control.CallSub(Fp_unload)
+		F.Intrinsic.Control.Case(10210)
+			V.Passed.000007.Set(V.Local.sPart.Trim)
+			V.Passed.000008.Set(V.Local.sRev.Trim)
+		F.Intrinsic.Control.Case(10220)
+			V.Passed.000007.Set(V.Local.sPart.Trim)
+			V.Passed.000008.Set(V.Local.sRev.Trim)
+	F.Intrinsic.Control.EndSelect
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,17380)
+	V.Passed.777777.Set(1)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Args.mousecol,=,0)
+	F.Intrinsic.String.Build("{0}!*!O!*!!*!!*!{1}!*! ",V.Caller.CompanyCode,V.Local.sPartNo,V.Local.sParam)
+	F.Global.General.CallWrapperSync(3500,V.Local.sParam)
+	Gui.FParts.gsfg_Parts.TextMatrix(0,V.Args.mouserow,0)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_gsParts_mouseup_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_gsParts_mouseup.End
+
+Program.Sub.FP_gsParts_checkclick.Start
+F.Intrinsic.Control.SetErrorHandler("FP_gsParts_checkclick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+'**************DONE************************
+V.Local.sPartNo.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sRev.Declare(String)
+
+'If called from the menu the button to scan the rows for selected will be visible
+F.Intrinsic.Control.If(V.Global.sCalledFrom,=,"Menu")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Check for Col = 1 and row != 0
+'F.Intrinsic.control.If(V.args.column,=,0,"and",V.Screen.FParts!gsfg_Parts.Row,!=,0)
+F.Intrinsic.control.If(V.args.column,=,0,"and",V.Args.Row,!=,0)
+'		Gui.FParts.gsfg_Parts.GetTextMatrix(1,V.Screen.FParts!gsfg_Parts.Row,V.Local.sPartNo)
+	Gui.FParts.gsfg_Parts.GetTextMatrix(1,V.Args.Row,V.Local.sPartNo)
+	F.Intrinsic.String.Mid(V.Local.sPartNo,18,3,V.Local.sRev)
+	F.Intrinsic.String.Left(V.Local.sPartNo,17,V.Local.sPart)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+Gui.FParts..Visible(False)
+
+F.Intrinsic.Control.If(V.Local.sPart,<>,"")
+	F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+		F.Intrinsic.Control.Case(17380)
+			V.Passed.009001.Set(V.Local.sPartNo.Trim)
+		F.Intrinsic.Control.Case(10210)
+			V.Passed.000007.Set(V.Local.sPart.Trim)
+			V.Passed.000008.Set(V.Local.sRev.Trim)
+		F.Intrinsic.Control.Case(10220)
+			V.Passed.000007.Set(V.Local.sPart.Trim)
+			V.Passed.000008.Set(V.Local.sRev.Trim)
+		F.Intrinsic.Control.Case(10230)
+			V.Passed.000007.Set(V.Local.sPart.Trim)
+			V.Passed.000008.Set(V.Local.sRev.Trim)
+	F.Intrinsic.Control.EndSelect
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,17380)
+	V.Passed.777777.Set(1)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub(Fp_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_gsParts_checkclick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_gsParts_checkclick.End
+
+Program.Sub.FP_unload.Start
+F.Intrinsic.Control.SetErrorHandler("FP_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.FParts..Visible(False)
+
+F.Intrinsic.Control.If(V.Global.sCalledFrom,=,"BrowserHook")
+	F.Intrinsic.Control.If(V.Caller.Hook,=,17380)
+		V.Passed.777777.Set(1)
+		V.Passed.CANCEL.Set(1)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.ODBC.Connection!Conx.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_unload.End
+
+Program.Sub.FP_gsParts_1BuildStyle.Start
+F.Intrinsic.Control.SetErrorHandler("FP_gsParts_1BuildStyle_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+'**********************************DONE**************************************
+'This sub will hold the structure and style of the flexgid.
+Gui.FParts.gsfg_Parts.Cols(11)
+Gui.FParts.gsfg_Parts.Rows(2)
+Gui.FParts.gsfg_Parts.FixedRows(1)
+
+'Gui.FParts.gsfg_Parts.SetColumnPercentages(".03:.10:.15:.30:.03:.08:.10:.05:.05:.07")
+Gui.FParts.gsfg_Parts.SetColumnPercentages(".03:.10:.12:.30:.08:.10:.05:.05:.05:.07:.05")
+
+Gui.FParts.gsfg_Parts.TextMatrix(0,0,"Select")
+
+Gui.FParts.gsfg_Parts.BuildStyle(1,0,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,0,"Format","Alignment",4)
+
+Gui.FParts.gsfg_Parts.BuildStyle(2,0,"Type","checkbox","")
+Gui.FParts.gsfg_Parts.BuildStyle(2,0,"Format","Alignment",2)
+
+Gui.FParts.gsfg_Parts.BuildStyle(3,0,"Type","checkbox","")
+Gui.FParts.gsfg_Parts.BuildStyle(3,0,"Format","Alignment",2)
+Gui.FParts.gsfg_Parts.BuildStyle(3,0,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,0,"Color","Fore",V.Color.White)
+
+
+Gui.FParts.gsfg_Parts.TextMatrix(1,0,"Item ID")
+
+Gui.FParts.gsfg_Parts.BuildStyle(1,1,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,1,"Format","Alignment",4)
+
+Gui.FParts.gsfg_Parts.BuildStyle(2,1,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,1,"Format","Alignment",2)
+
+Gui.FParts.gsfg_Parts.BuildStyle(3,1,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,1,"Format","Alignment",2)
+Gui.FParts.gsfg_Parts.BuildStyle(3,1,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,1,"Color","Fore",V.Color.White)
+
+
+Gui.FParts.gsfg_Parts.TextMatrix(2,0,"Part Description")
+
+Gui.FParts.gsfg_Parts.BuildStyle(1,2,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,2,"Format","Alignment",4)
+
+Gui.FParts.gsfg_Parts.BuildStyle(2,2,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,2,"Format","Alignment",2)
+
+Gui.FParts.gsfg_Parts.BuildStyle(3,2,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,2,"Format","Alignment",2)
+Gui.FParts.gsfg_Parts.BuildStyle(3,2,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,2,"Color","Fore",V.Color.White)
+
+
+Gui.FParts.gsfg_Parts.TextMatrix(3,0,"Extra Description")
+
+Gui.FParts.gsfg_Parts.BuildStyle(1,3,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,3,"Format","Alignment",4)
+
+Gui.FParts.gsfg_Parts.BuildStyle(2,3,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,3,"Format","Alignment",2)
+
+Gui.FParts.gsfg_Parts.BuildStyle(3,3,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,3,"Format","Alignment",2)
+Gui.FParts.gsfg_Parts.BuildStyle(3,3,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,3,"Color","Fore",V.Color.White)
+
+Gui.FParts.gsfg_Parts.TextMatrix(4,0,"Vendor")
+
+Gui.FParts.gsfg_Parts.BuildStyle(1,4,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,4,"Format","Alignment",4)
+
+Gui.FParts.gsfg_Parts.BuildStyle(2,4,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,4,"Format","Alignment",2)
+
+Gui.FParts.gsfg_Parts.BuildStyle(3,4,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,4,"Format","Alignment",2)
+Gui.FParts.gsfg_Parts.BuildStyle(3,4,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,4,"Color","Fore",V.Color.White)
+
+Gui.FParts.gsfg_Parts.TextMatrix(5,0,"Vendor Part #")
+Gui.FParts.gsfg_Parts.BuildStyle(1,5,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,5,"Format","Alignment",4)
+Gui.FParts.gsfg_Parts.BuildStyle(2,5,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,5,"Format","Alignment",2)
+Gui.FParts.gsfg_Parts.BuildStyle(3,5,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,5,"Format","Alignment",2)
+Gui.FParts.gsfg_Parts.BuildStyle(3,5,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,5,"Color","Fore",V.Color.White)
+
+Gui.FParts.gsfg_Parts.TextMatrix(6,0,"Qty on Hand")
+
+Gui.FParts.gsfg_Parts.BuildStyle(1,6,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,6,"Format","Alignment",4)
+
+Gui.FParts.gsfg_Parts.BuildStyle(2,6,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,6,"Format","Alignment",6)
+Gui.FParts.gsfg_Parts.BuildStyle(2,6,"Format","Mask",".00")
+
+Gui.FParts.gsfg_Parts.BuildStyle(3,6,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,6,"Format","Alignment",6)
+Gui.FParts.gsfg_Parts.BuildStyle(3,6,"Format","Mask",".00")
+Gui.FParts.gsfg_Parts.BuildStyle(3,6,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,6,"Color","Fore",V.Color.White)
+
+Gui.FParts.gsfg_Parts.TextMatrix(7,0,"List Price")
+
+Gui.FParts.gsfg_Parts.BuildStyle(1,7,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,7,"Format","Alignment",4)
+
+Gui.FParts.gsfg_Parts.BuildStyle(2,7,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,7,"Format","Alignment",6)
+Gui.FParts.gsfg_Parts.BuildStyle(2,7,"Format","Mask",".00")
+
+Gui.FParts.gsfg_Parts.BuildStyle(3,7,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,7,"Format","Alignment",6)
+Gui.FParts.gsfg_Parts.BuildStyle(3,7,"Format","Mask",".00")
+Gui.FParts.gsfg_Parts.BuildStyle(3,7,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,7,"Color","Fore",V.Color.White)
+
+Gui.FParts.gsfg_Parts.TextMatrix(8,0,"Cost")
+
+Gui.FParts.gsfg_Parts.BuildStyle(1,8,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,8,"Format","Alignment",4)
+
+Gui.FParts.gsfg_Parts.BuildStyle(2,8,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,8,"Format","Alignment",6)
+Gui.FParts.gsfg_Parts.BuildStyle(2,8,"Format","Mask",".00")
+
+Gui.FParts.gsfg_Parts.BuildStyle(3,8,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,8,"Format","Alignment",6)
+Gui.FParts.gsfg_Parts.BuildStyle(3,8,"Format","Mask",".00")
+Gui.FParts.gsfg_Parts.BuildStyle(3,8,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,8,"Color","Fore",V.Color.White)
+
+Gui.FParts.gsfg_Parts.TextMatrix(9,0,"Qty on Demand")
+
+Gui.FParts.gsfg_Parts.BuildStyle(1,9,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,9,"Format","Alignment",4)
+
+Gui.FParts.gsfg_Parts.BuildStyle(2,9,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,9,"Format","Alignment",6)
+Gui.FParts.gsfg_Parts.BuildStyle(2,9,"Format","Mask",".00")
+
+Gui.FParts.gsfg_Parts.BuildStyle(3,9,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,9,"Format","Alignment",6)
+Gui.FParts.gsfg_Parts.BuildStyle(3,9,"Format","Mask",".00")
+Gui.FParts.gsfg_Parts.BuildStyle(3,9,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,9,"Color","Fore",V.Color.White)
+
+Gui.FParts.gsfg_Parts.TextMatrix(10,0,"Date Last Used")
+Gui.FParts.gsfg_Parts.BuildStyle(1,10,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(1,10,"Format","Alignment",4)
+Gui.FParts.gsfg_Parts.BuildStyle(2,10,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(2,10,"Format","Alignment",2)
+Gui.FParts.gsfg_Parts.BuildStyle(3,10,"Type","Locked",True)
+Gui.FParts.gsfg_Parts.BuildStyle(3,10,"Format","Alignment",2)
+Gui.FParts.gsfg_Parts.BuildStyle(3,10,"Color","Back",V.Color.SEC-GSS-02)
+Gui.FParts.gsfg_Parts.BuildStyle(3,10,"Color","Fore",V.Color.White)
+
+Gui.FParts.gsfg_Parts.ApplyStyle(0,1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_gsParts_1BuildStyle_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_gsParts_1BuildStyle.End
+
+Program.Sub.FP_gsParts_2Load.Start
+F.Intrinsic.Control.SetErrorHandler("FP_gsParts_2Load_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+'***********************DONE***********************************
+V.Local.sUDTElements.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.iRecCtr.Declare(Long)
+V.Local.iCount.Declare(Long)
+V.uGlobal.uParts.Redim(-1,-1)
+
+'This sub opens a database connection, opens a recordset, loads the recordset into a UDT, then the UDT is loaded into the flexgrid
+V.Local.sUDTElements.Set("Selected*!*Part*!*Description*!*Vim_Extend_Desc*!*Name_Vendor*!*MFG_Part*!*Qty_OnHand*!*Amt_Price*!*Amt_Cost*!*Qty_onDemand*!*DATE_LAST_USAGE")
+
+Gui.FParts.gsfg_Parts.Visible(False)
+
+F.Intrinsic.UI.InvokeWaitDialog("Loading Query","Loading")
+Gui.FParts..Enabled(False)
+Gui.FParts..Visible(True)
+
+V.Local.sSQL.Set("Select Count (Part)  from GCG_4204_EXT_DESC VIM Left Join Inv_Cross_Ref On Vim.Part = Inv_Cross_Ref.Part Left Join Inventory_Mstr on vim.Part = Inventory_Mstr.part Left Join v_Customer_Master on Inv_Cross_Ref.customer = v_customer_Master.Customer  Where PRODUCT_LINE <> '' and FLAG_INACTIVE<>'Y' AND OBSOLETE_FLAG<>'Y'")
+F.Intrinsic.String.Concat(V.Local.sSQL,V.Args.sSqlFilter,V.Local.sSQL)
+F.ODBC.Connection!Conx.ExecuteAndReturn(V.Local.sSQL,V.Local.iRecCtr)
+
+V.Local.sSQL.Set("Select Part, Description,VIM_Extend_Desc, Name_Vendor, MFG_Part, Inventory_Mstr.Qty_OnHand, SUBSTRING(Inventory_mstr.date_last_usage,1,2) + '-' + SUBSTRING(Inventory_mstr.date_last_usage,3,2) + '-' + SUBSTRING(Inventory_Mstr.date_last_usage,5,2) as DATE_LAST_USAGE, Inventory_Mstr.Amt_Price, Inventory_Mstr.Amt_Cost, Name_Customer from GCG_4204_EXT_DESC VIM Left Join Inv_Cross_Ref On Vim.Part = Inv_Cross_Ref.Part Left Join Inventory_Mstr on vim.Part = Inventory_Mstr.part Left Join v_Customer_Master on Inv_Cross_Ref.customer = v_customer_Master.Customer Where PRODUCT_LINE <> '' and FLAG_INACTIVE<>'Y' AND OBSOLETE_FLAG<>'Y'")
+
+F.Intrinsic.String.Concat(V.Local.sSQL,V.Args.sSqlFilter,V.Local.sSQL)
+F.ODBC.Connection!conx.OpenLocalRecordsetRW("rstInvty",V.Local.sSQL)
+F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rstInvty","V.uGlobal.uParts",False)
+F.ODBC.conx!rstInvty.Close
+
+'Now get the Qty on order
+F.Intrinsic.Control.For(V.Local.iCount,V.uGlobal.uParts.LBound,V.uGlobal.uParts.UBound,1)
+	F.Intrinsic.String.Build("Select Sum (Qty_BO) as Qty_BO from v_Order_Lines where part = '{0}' and qty_BO > 0",V.uGlobal.uParts(v.Local.iCount)!PART.Trim,V.Local.sSQL)
+	F.ODBC.Connection!Conx.OpenLocalRecordsetRO("rstInvty",V.Local.sSQL)
+	V.uGlobal.uParts(v.Local.iCount)!Qty_OnDemand.Set(V.ODBC.Conx!rstInvty.FieldVal!Qty_BO)
+	F.ODBC.Conx!rstInvty.Close
+F.Intrinsic.Control.Next(V.Local.iCount)
+Gui.FParts.gsfg_Parts.LoadFromUDT("V.uGlobal.uParts",V.Local.sUDTelements,2)
+F.Intrinsic.Math.Add(V.Local.iRecCtr,1,V.Local.iRecCtr)
+Gui.FParts.gsfg_Parts.Rows(V.Local.iRecCtr)
+
+F.Intrinsic.Control.If(V.Local.iRecCtr,>=,2)
+	Gui.FParts.gsfg_Parts.SortColumn(2,0)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.CloseWaitDialog
+Gui.FParts..Enabled(True)
+
+Gui.FParts.gsfg_Parts.Visible(True)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_gsParts_2Load_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_gsParts_2Load.End
+
+Program.Sub.FP_gsParts_Query.Start
+F.Intrinsic.Control.SetErrorHandler("FP_gsParts_Query_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+F.Intrinsic.Control.CallSub(Fp_gsparts_1buildstyle)
+F.Intrinsic.Control.CallSub(Fp_gsparts_sqlfilter)
+F.Intrinsic.Control.CallSub(Fp_gsparts_2load,"sSqlFilter",V.Args.sSqlFilter)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_gsParts_Query_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_gsParts_Query.End
+
+Program.Sub.FP_Clears.Start
+F.Intrinsic.Control.SetErrorHandler("FP_Clears_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+'************DONE*********************
+
+Gui.FParts.txtPartNo.Text("")
+Gui.FParts.txtPartDesc.Text("")
+Gui.FParts.txtPartDesc2.Text("")
+Gui.FParts.txtSortCode.Text("")
+Gui.FParts.txtVendorSort.Text("")
+Gui.FParts.txtPartUF1.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_Clears_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_Clears.End
+
+Program.Sub.FP_refresh.Start
+F.Intrinsic.Control.SetErrorHandler("FP_refresh_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.FParts..Enabled(False)
+
+F.Intrinsic.UI.InvokeWaitDialog("Loading....","Loading List")
+
+'F.Intrinsic.Control.CallSub(Fp_clears)
+F.Intrinsic.Control.CallSub(Fp_gsparts_query)
+
+F.Intrinsic.UI.CloseWaitDialog
+
+Gui.FParts..Enabled(True)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_refresh_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_refresh.End
+
+Program.Sub.FP_gsParts_SQLFilter.Start
+F.Intrinsic.Control.SetErrorHandler("FP_gsParts_SQLFilter_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+'This sub opens a database connection, opens a recordset, loads the recordset into a UDT, then the UDT is loaded into the flexgrid
+
+Gui.FParts.gsfg_Parts.Visible(False)
+
+V.Local.sSQL.Declare(String)
+V.Local.sTemp0.Declare(String)
+V.Local.sDesc.Declare(String)
+V.Local.iCount.Declare(Long)
+V.Local.sDescTemp.Declare(String)
+
+'check to see if the checkbox is checked for the beginning of the part
+F.Intrinsic.Control.If(V.Screen.FParts!chkPartSearch.Value,=,1)
+	F.Intrinsic.Control.If(V.Screen.FParts!txtPartNo.Text,<>,"")
+		V.Local.sTemp0.Set(V.Screen.FParts!txtPartNo.Text)
+		F.Intrinsic.String.Concat(V.Local.sSQL," AND UCASE(PART) LIKE '",V.Local.sTemp0.UCase,"%'",V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Screen.FParts!txtPartNo.Text,<>,"")
+		V.Local.sTemp0.Set(V.Screen.FParts!txtPartNo.Text)
+		F.Intrinsic.String.Concat(V.Local.sSQL," AND UCASE(PART) LIKE '%",V.Local.sTemp0.UCase,"%' ",V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.FParts!txtPartDesc.Text,<>,"")
+	V.Local.sTemp0.Set(V.Screen.FParts!txtPartDesc.Text)
+	F.Intrinsic.String.Split(V.Local.sTemp0,",",V.Local.sTemp0)
+
+	F.Intrinsic.Control.For(V.Local.iCount,0,V.Local.sTemp0.UBound,1)
+		F.Intrinsic.Control.If(V.Local.sTemp0(V.Local.iCount),<>,"")
+			F.Intrinsic.String.Build("{0} AND UCASE(DESCRIPTION) LIKE '%{1}%'",V.Local.sSQL,V.Local.sTemp0(V.Local.iCount).UCase,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCount)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.FParts!txtPartDesc2.Text,<>,"")
+	V.Local.sDesc.Set(V.Screen.FParts!txtPartDesc2.Text)
+	F.Intrinsic.String.Split(V.Local.sDesc,",",V.Local.sDesc)
+	F.Intrinsic.Control.For(V.Local.iCount,0,V.Local.sDesc.UBound,1)
+		F.Intrinsic.Control.If(V.Local.sDesc(v.Local.iCount).Trim,<>,"")
+			V.Local.sDescTemp.Set(V.Local.sDesc(V.Local.iCount).UCase)
+			F.Intrinsic.String.Build("{0} And uCase(Vim_Extend_Desc) Like '%{1}%' ",V.Local.sSQL,V.Local.sDescTemp.PSQLFriendly,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCount)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.FParts!txtSortCode.Text,<>,"")
+	V.Local.sTemp0.Set(V.Screen.FParts!txtSortCode.Text)
+	F.Intrinsic.String.Concat(V.Local.sSQL," AND UCASE(CODE_SORT) LIKE '%",V.Local.sTemp0.UCase,"%'",V.Local.sSQL)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.FParts!txtPartUF1.Text,!=,"")
+	V.Local.sTemp0.Set(V.Screen.FParts!txtPartUF1.Text)
+	F.Intrinsic.String.Build("{0} and Ucase(Name_Customer) LIKE '%{1}%'",V.Local.sSQL,V.Local.sTemp0.UCase,V.Local.sSQL)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.FParts!txtVendorSort.Text,<>,"")
+	V.Local.sTemp0.Set(V.Screen.FParts!txtVendorSort.Text)
+	F.Intrinsic.String.Concat(V.Local.sSQL," AND UCASE(NAME_VENDOR) LIKE '%",V.Local.sTemp0.UCase,"%' ",V.Local.sSQL)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.FParts!txtVendor.Text,<>,"")
+	V.Local.sTemp0.Set(V.Screen.FParts!txtVendor.Text)
+	F.Intrinsic.String.Build("{0} And UCase(MFG_Part) Like '%{1}%'",V.Local.sSQL,V.Local.sTemp0.UCase,V.Local.sSQL)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.AddRV("sSqlFilter",V.Local.sSQL)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_gsParts_SQLFilter_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_gsParts_SQLFilter.End
+
+Program.Sub.FP_cmdVendor.Start
+F.Intrinsic.Control.SetErrorHandler("FP_cmdVendor_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'***************DONE*****************************
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser(300,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.FParts.txtVendorSort.Text(V.Local.sRet(1))
+F.Intrinsic.Control.EndIf
+
+Gui.FParts.txtVendorSort.SetFocus
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_cmdVendor_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_cmdVendor.End
+
+Program.Sub.FP_cmdSortCode.Start
+F.Intrinsic.Control.SetErrorHandler("FP_cmdSortCode_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'**************DONE***************************************
+
+V.Local.sRet.Declare(String)
+V.Local.sCol.Declare(String)
+V.Local.sColW.Declare(String)
+V.Local.sFormat.Declare(String)
+V.Local.nAlign.Declare(Long,0)
+V.Local.sQuery.Declare(String)
+
+F.Intrinsic.String.Split("Sort Code*!*Description","*!*",V.Local.sCol)
+F.Intrinsic.String.Split("1100*!*4500","*!*",V.Local.sColW)
+F.Intrinsic.String.Split("#*!*#","*!*",V.Local.sFormat)
+F.Intrinsic.String.Split("0*!*0","*!*",V.Local.nAlign)
+V.Local.sQuery.Set("Select SORT_CODE, DESCR FROM V_INV_SORT ORDER BY DESCR ASC")
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Select an Item","Conx",V.Local.sQuery,V.Local.sCol,V.Local.sColW,1200,9600,V.Local.sFormat,V.Local.nAlign,V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.FParts.txtSortCode.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+Gui.FParts.txtSortCode.SetFocus
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FP_cmdSortCode_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FP_cmdSortCode.End
+
+Program.Sub.cmdquery_click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdquery_click_Err")
+	F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sParam.Declare(String)
+V.Local.sVal.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.iID.Declare(Long)
+
+'***************DONE*******************************
+
+F.Global.BI.GetIDFromName("GCG_DOV_4204_PartInfo.rpt",V.Local.iID)
+
+'Report here
+F.Global.BI.GetRunID(V.Global.iBIRunID)
+F.Global.BI.StartLogging(V.Global.iBIRunID,V.Local.iID,-1,"GCG_DOV_4204_PartInfo.rpt",V.Global.iBILogID)
+
+F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uParts!BIRunID,"BIRunID")
+F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uParts!BIRunID,V.Global.iBIRunID)
+F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uParts!Qty_OnDemand,"Qty_OnDemand")
+V.Local.sSql.Set("Select * From GCG_DOV_4204_Rpt")
+F.ODBC.Connection!Conx.OpenLocalRecordsetRW("rstrpt",V.Local.sSql)
+
+F.Intrinsic.Variable.SaveUDTToRecordSet("Conx","rstrpt","v.uGlobal.uParts")
+F.ODBC.Conx!rstrpt.Close
+F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uParts!Qty_OnDemand,"")
+F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uParts!BIRunID,"")
+F.Global.BI.StopLogging(V.Global.iBILogID)
+V.Local.sParam.Set("BIRUNID")
+V.Local.sVal.Set(V.Global.iBIRunID)
+F.Global.BI.RunReportPreProcessor(V.Global.iBIRunID,V.Global.iBILogID,V.Local.sParam,V.Local.sVal,"GCG_DOV_4204_PartInfo.rpt",-1,True,"",-1,"",-1,"","",V.Global.iBIRunID)
+
+
+F.Intrinsic.String.Build("Delete From GCG_DOV_4204_Rpt where BIRunID = '{0}'",V.Local.sVal,V.Local.sSql)
+F.ODBC.Connection!Conx.Execute(V.Local.sSql)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdquery_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_DOV_4204_Browser_PartExtraDesc.GAS",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Fp_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdquery_click.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+Program.Sub.Comments.End
